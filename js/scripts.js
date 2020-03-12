@@ -12,7 +12,7 @@ var gameController = {
 function Hangman() {
     //Properties
     this.runGame = true;
-    this.words = [
+    this.wordList = [
         'Armidillo',
         'Flustered',
         'Buzzkill',
@@ -26,11 +26,11 @@ function Hangman() {
 
     //Methods
 
-    function bigLetters(){    
-    for (i=0; i<this.words.length; i++){
-        this.words[i] = this.words[i].toUpperCase();
+    this.bigLetters = function(){    
+    for (i=0; i<this.wordList.length; i++){
+        this.wordList[i] = this.wordList[i].toUpperCase();
         }
-    }   
+    } 
 
     this.run = function () {
         this.setup();
@@ -46,8 +46,9 @@ function Hangman() {
         this.chances = maxChances;
         this.displayString = '';
         //Get a new word
-        var i = Math.floor(Math.random() * this.words.length);//The floor() method rounds a number DOWNWARDS to the nearest integer, and returns the result.
-        this.word = this.words[i];
+        var i = Math.floor(Math.random() * this.wordList.length);//The floor() method rounds a number DOWNWARDS to the nearest integer, and returns the result.
+        //  this.word = this.wordList[i];
+        this.bigLetters();        
 
         //How do we display enough empty spaces
         for (var i = 0; i < this.word.length; i++) this.displayString += '_';//for loops do not need {} braces IF we only have one line of code inside the loop. "this.dislayString += '_';" is actually INSIDE this loop.
