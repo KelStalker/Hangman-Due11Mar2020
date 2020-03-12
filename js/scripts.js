@@ -13,11 +13,11 @@ function Hangman() {
     //Properties
     this.runGame = true;
     this.words = [
-        'programming',
-        'test',
-        'Clayton',
-        'TECHCareers',
-        'Mom and Dad'
+        'Armidillo',
+        'Flustered',
+        'Buzzkill',
+        'Dicknose',
+        'Gangnamstyle'
     ];
     this.word = '';
     this.displayString = '';
@@ -25,6 +25,13 @@ function Hangman() {
     this.previousGuesses = [];
 
     //Methods
+
+    function bigLetters(){    
+    for (i=0; i<this.words.length; i++){
+        this.words[i] = this.words[i].toUpperCase();
+        }
+    }   
+
     this.run = function () {
         this.setup();
         _this = this;
